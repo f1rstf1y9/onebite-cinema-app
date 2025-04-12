@@ -1,4 +1,4 @@
-import Searchbar from "@/app/components/searchbar";
+import Searchbar from "@/components/searchbar";
 import { ReactNode, Suspense } from "react";
 
 export default function layout({ children }: { children: ReactNode }) {
