@@ -53,7 +53,7 @@ async function MovieDetail({ movieId }: { movieId: string }) {
         </div>
         <div className={style.title}>{title}</div>
         <div className={style.detailInfo}>
-          {releaseDate} / {genres.join(", ")} / {runtime}
+          {releaseDate} / {genres.join(", ")} / {runtime}분
         </div>
         <div className={style.company}>{company}</div>
         <div className={style.subTitle}>{subTitle}</div>
@@ -73,7 +73,7 @@ async function ReviewList({ movieId }: { movieId: string }) {
   const reviews: ReviewData[] = await response.json();
 
   return (
-    <section>
+    <section className={style.review_list_container}>
       {reviews.map((review) => (
         <ReviewItem key={`review-item-${review.id}`} {...review} />
       ))}
