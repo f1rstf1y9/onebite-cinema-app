@@ -1,8 +1,19 @@
 .container {
   display: flex;
   flex-direction: column;
+  gap: 50px;
+}
+
+.container > section {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
+
+.container > .review_list_container {
+  gap: 50px;
+}
+
 .cover_img_container {
   display: flex;
   justify-content: center;
@@ -35,4 +46,8 @@
 
 .subTitle {
   font-weight: bold;
+}
+
+.description {
+  line-height: 1.5rem;
 }
