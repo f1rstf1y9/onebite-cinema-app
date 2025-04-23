@@ -2,6 +2,7 @@ import { MovieData, ReviewData } from "@/types";
 import style from "./page.module.css";
 import { notFound } from "next/navigation";
 import ReviewItem from "@/components/review-item";
+import ReviewEditor from "@/components/review-editor";
 
 export async function generateStaticParams() {
   const response = await fetch(
@@ -43,7 +44,7 @@ async function MovieDetail({ movieId }: { movieId: string }) {
 
   return (
     <>
-      <div className={style.container}>
+      <section>
         <div
           className={style.cover_img_container}
           style={{ backgroundImage: `url('${posterImgUrl}')` }}
@@ -57,7 +58,7 @@ async function MovieDetail({ movieId }: { movieId: string }) {
         <div className={style.company}>{company}</div>
         <div className={style.subTitle}>{subTitle}</div>
         <div className={style.description}>{description}</div>
-      </div>
+      </section>
     </>
   );
 }
@@ -87,8 +88,9 @@ export default async function page({
 }) {
   const { id } = await params;
   return (
-    <div>
+    <div className={style.container}>
       <MovieDetail movieId={id} />
+      <ReviewEditor movieId={id} />
       <ReviewList movieId={id} />
     </div>
   );
