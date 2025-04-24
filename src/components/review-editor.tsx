@@ -20,13 +20,19 @@ export default function ReviewEditor({ movieId }: { movieId: string }) {
     <section>
       <form action={formAction} className={style.form_container}>
         <input type="text" name="movieId" value={movieId} hidden readOnly />
-        <textarea disabled={isPending} name="content" placeholder="리뷰 내용" />
+        <textarea
+          disabled={isPending}
+          name="content"
+          placeholder="리뷰 내용"
+          required
+        />
         <div className={style.submit_container}>
           <input
             disabled={isPending}
             type="text"
             name="author"
             placeholder="작성자"
+            required
           />
           <button disabled={isPending}>{isPending ? "..." : "작성하기"}</button>
         </div>
