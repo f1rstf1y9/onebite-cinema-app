@@ -33,6 +33,7 @@ async function MovieDetail({ movieId }: { movieId: string }) {
     return <div>오류가 발생했습니다...</div>;
   }
 
+  const movie: MovieData = await response.json();
   const {
     title,
     subTitle,
@@ -42,7 +43,7 @@ async function MovieDetail({ movieId }: { movieId: string }) {
     genres,
     runtime,
     posterImgUrl,
-  } = await response.json();
+  } = movie;
 
   return (
     <>

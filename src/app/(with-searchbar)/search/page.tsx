@@ -1,13 +1,9 @@
-import MovieListSkeleton from "@/components/skeleton/movie-list-skeleton";
 import style from "./page.module.css";
 import MovieItem from "@/components/movie-item";
 import { MovieData } from "@/types";
-import { delay } from "@/utils/delay";
-import { Suspense } from "react";
 import { Metadata } from "next";
 
 async function SearchResult({ q }: { q: string }) {
-  await delay(1500);
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/movie/search?q=${q}`,
     { cache: "force-cache" }
@@ -51,9 +47,7 @@ export default async function page({
 
   return (
     <div className={style.container}>
-      <Suspense key={q || ""} fallback={<MovieListSkeleton count={3} />}>
-        <SearchResult q={q || ""} />
-      </Suspense>
+      <SearchResult q={q || ""} />
     </div>
   );
 }
