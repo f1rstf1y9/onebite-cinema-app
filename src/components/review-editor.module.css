@@ -24,7 +24,7 @@
 .form_container button {
   background-color: rgb(255, 255, 255);
   border: none;
-  padding: 0 10px;
+  width: 70px;
   font-weight: bold;
   cursor: pointer;
 }
